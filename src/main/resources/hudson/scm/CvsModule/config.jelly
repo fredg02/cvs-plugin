@@ -22,12 +22,20 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 -->
 <j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form">
-    <f:entry title="${%Remote Name}" field="remoteName">
-        <f:textbox />
-    </f:entry>
-    <f:entry title="${%Local Name}" field="localName">
-        <f:textbox />
-    </f:entry>
+    
+    <f:radioBlock name="bla" value="${idx}" title="Single Module" checked="true">
+        <f:entry title="${%Remote Name}" field="remoteName">
+            <f:textbox />
+        </f:entry>
+        <f:entry title="${%Local Name}" field="localName">
+            <f:textbox />
+        </f:entry>
+    </f:radioBlock>
+    <f:radioBlock name="bla" value="${idx}" title="List of Modules" checked="false">
+        <f:entry title="${%Remote Names}" field="remoteNameList">
+            <f:textarea />
+        </f:entry>
+    </f:radioBlock>
     <f:dropdownList name="moduleLocation" title="${%Module Location}">
           <j:forEach var="currentDescriptor" items="${descriptor.moduleLocationDescriptors}" varStatus="loop">
             <f:dropdownListBlock title="${currentDescriptor.displayName}" value="${loop.index}"
