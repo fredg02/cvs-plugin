@@ -200,7 +200,7 @@ public class CVSSCMTest extends HudsonTestCase {
         CvsModule cvsModule = new CvsModule(moduleName, localName, moduleLocation);
         List<ExcludedRegion> regions = Collections.emptyList();
         CvsRepository cvsRepo = new CvsRepository(cvsRoot, false, null, Collections.singletonList(cvsModule), regions, 3);
-        return new CVSSCM(Collections.singletonList(cvsRepo), false, legacy, null, false, false, false);
+        return new CVSSCM(Collections.singletonList(cvsRepo), false, legacy, null, false, false, false, false);
         
     }
     
@@ -226,7 +226,7 @@ public class CVSSCMTest extends HudsonTestCase {
         moduleList.add(cvsModule1);
         moduleList.add(cvsModule2);
         CvsRepository cvsRepo = new CvsRepository(cvsRoot, false, null, moduleList, regions, 3);
-        return new CVSSCM(Collections.singletonList(cvsRepo), false, false, null, false, false, false);
+        return new CVSSCM(Collections.singletonList(cvsRepo), false, false, null, false, false, false, false);
     }
 
     //# Multi Module, Multi Repo
@@ -240,7 +240,7 @@ public class CVSSCMTest extends HudsonTestCase {
         List<CvsRepository> cvsRepos = new ArrayList<CvsRepository>();
         cvsRepos.add(cvsRepo);
         cvsRepos.add(cvsRepo2);
-        return new CVSSCM(cvsRepos, false, false, null, false, false, false);
+        return new CVSSCM(cvsRepos, false, false, null, false, false, false, false);
     }
 
     private void checkHeadTagBranch(FreeStyleProject p) throws IOException, Exception, InterruptedException, ExecutionException {
